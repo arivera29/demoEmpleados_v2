@@ -1,0 +1,61 @@
+<div class="container">
+  <h3 class="bg-primary text-white p-3">Agregar empleado</h3>
+  <form [formGroup]="formGroup" (ngSubmit)="saveEmpleado()">
+    <!-- <div class="mb-3">
+      <label for="Id" class="form-label">Id</label>
+      <input type="text" class="form-control" id="Id" aria-describedby="IdHelp" formControlName="Id">
+      <div id="IdHelp" class="form-text">Ingresar id del empleado</div>
+    </div> -->
+    <div class="mb-3">
+      <label for="Nombre" class="form-label">Nombre</label>
+      <input type="text" class="form-control" id="Nombre" aria-describedby="NameHelp" formControlName="Nombre">
+      <div id="NameHelp" class="form-text">Ingresar nombre del empleado</div>
+    </div>
+    <div class="mb-3">
+      <label for="Apellido" class="form-label">Apellido</label>
+      <input type="text" class="form-control" id="Apellido" formControlName="Apellido">
+    </div>
+    <div class="mb-3">
+      <label for="Fecha Nacimiento" class="form-label">Fecha de nacimiento</label>
+      <input type="date" class="form-control" id="FechaNacimiento" formControlName="FechaNacimiento">
+    </div>
+    <div class="mb-3">
+      <label for="Foto" class="form-label">Foto</label>
+      <input type="file" class="form-control" id="Foto" formControlName="Foto">
+    </div>
+    <div class="mb-3">
+      <label for="EstadoCivil" class="form-label">Estado Civil</label>
+      <select class="form-select" id="EstadoCivil" aria-label="Default select example" formControlName="EstadoCivil">
+        <option value="1">Casado</option>
+        <option value="2">Soltero</option>
+      </select>
+    </div>
+    <div class="mb-3">
+      <label for="Hermanos" class="form-label">Tiene Hermanos?</label>
+      <select class="form-select" id="Hermanos" aria-label="Default select example" formControlName="Hermanos">
+        <option value="0">No</option>
+        <option value="1">Si</option>
+      </select>
+    </div>
+    <button *ngIf="!isFound" type="submit" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Agregar</button>
+    <button *ngIf="isFound" type="submit" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Editar</button>
+  </form>
+</div>
+
+<!-- Modal -->
+<div *ngIf="success" class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel"></h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Empleado guardado correctamente
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="success = false">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
